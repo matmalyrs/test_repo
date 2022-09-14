@@ -5,20 +5,6 @@ jobs:
       - image: gcr.io/rs-public-containers/rackspace-toolbox:latest
     steps:
       - checkout
-      - run: lint.sh
-      - run:
-          name: plan.sh
-          command: plan.sh
-          no_output_timeout: 20m # don't break if it takes a while to refresh/plan
-      - store_artifacts:
-          path: /tmp/artifacts
-          destination: /
-      - persist_to_workspace:
-          root: workspace
-          paths:
-            - .terraform.*.tar.gz
-            - terraform.*.plan
-            - changed_layers
 
 workflows:
   version: 2
