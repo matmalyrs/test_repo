@@ -5,7 +5,7 @@ jobs:
       - image: docker.io/mataly/toolbox-rs-pipeline-python:latest
     steps:
       - checkout
-      - run: authenticate.py
+      - run: python3 authenticate.py
 
 workflows:
   version: 2
