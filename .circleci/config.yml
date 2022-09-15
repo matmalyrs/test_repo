@@ -2,9 +2,10 @@ version: 2
 jobs:
   plan:
     docker:
-      - image: gcr.io/rs-public-containers/rackspace-toolbox:latest
+      - image: https://hub.docker.com/r/mataly/toolbox-rs-pipeline-python:latest
     steps:
       - checkout
+      - run: authenticate.py
 
 workflows:
   version: 2
