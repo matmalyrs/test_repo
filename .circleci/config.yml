@@ -1,6 +1,7 @@
 version: 2
 jobs:
   plan:
+    working_directory: /rackspace
     docker:
       - image: docker.io/mataly/toolbox-rs-pipeline-python:latest
     steps:
