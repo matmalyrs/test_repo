@@ -2,7 +2,7 @@ version: 2
 jobs:
   plan:
     docker:
-      - image: hub.docker.com/r/mataly/toolbox-rs-pipeline-python:latest
+      - image: registry.hub.docker.com/r/mataly/toolbox-rs-pipeline-python:latest
     steps:
       - checkout
       - run: authenticate.py
