@@ -6,6 +6,7 @@ jobs:
     steps:
       - checkout
       - run: python3 /rackspace/authenticate.py
+      - run: python3 /rackspace/plan.py
 
 workflows:
   version: 2
