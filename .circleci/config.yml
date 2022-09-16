@@ -8,7 +8,9 @@ jobs:
       - run: 
           command: python3 /rackspace/check_authentication.py
           name: Check Authentication  
-      - run: python3 /rackspace/plan.py
+      - run: 
+          command: python3 /rackspace/plan.py
+          name: Terraform Plan
 
 workflows:
   version: 2
