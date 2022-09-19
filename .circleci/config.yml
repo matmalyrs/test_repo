@@ -11,9 +11,36 @@ jobs:
       - run: 
           command: python3 /rackspace/plan.py
           name: Terraform Plan
+      - store_artifacts:
+          path: /tmp/artifacts
+          destination: /
+      - persist_to_workspace:
+          root: workspace
+          paths:
+            - .terraform.*.tar.gz
+            - terraform.*.plan
 
+  apply:
+    docker:
+      - image: docker.io/mataly/toolbox-rs-pipeline-python:latest
+    steps:
+      - run: 
+          command: python3 /rackspace/check_authentication.py
+          name: Check Authentication
+      - attach_workspace:
+          at: workspace
+      - run: 
+          command: python3 /rackspace/apply.py
+          name: Terraform Apply
+      
 workflows:
   version: 2
   build_and_test:
     jobs:
       - plan
+      - apply:
+          requires:
+            - plan
+          filters:
+            branches:
+              only: master
