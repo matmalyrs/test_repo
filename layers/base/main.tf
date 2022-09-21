@@ -1,20 +1,20 @@
 variable "subscription_id" {
-  type = string
+  type      = string
   sensitive = true
 }
 
 variable "tenant_id" {
-  type = string
+  type      = string
   sensitive = true
 }
 
 variable "client_id" {
-  type = string
+  type      = string
   sensitive = true
 }
 
 variable "client_secret" {
-  type = string
+  type      = string
   sensitive = true
 }
 
@@ -25,6 +25,16 @@ provider "azurerm" {
   client_id       = var.client_id
   client_secret   = var.client_secret
 }
+
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "test_rg"
+    storage_account_name = "tfstatestrg543654576"
+    container_name       = "2cbef372-42ce-48e2-aaa1-6606bcf16ad2-tfstate"
+    key                  = "base.tfstate"
+  }
+}
+
 
 resource "azurerm_resource_group" "rg" {
   name     = "myTFResourceGroup1"
