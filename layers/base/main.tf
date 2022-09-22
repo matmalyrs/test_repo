@@ -26,6 +26,8 @@ terraform {
     }
   }
   backend "azurerm" {
+    subscription_id      = "2cbef372-42ce-48e2-aaa1-6606bcf16ad2"
+    tenant_id            = "570057f4-73ef-41c8-bcbb-08db2fc15c2b"
     resource_group_name  = "test_rg"
     storage_account_name = "tfstatestrg543654576"
     container_name       = "2cbef372-42ce-48e2-aaa1-6606bcf16ad2-tfstate"
