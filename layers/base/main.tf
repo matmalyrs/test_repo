@@ -25,6 +25,12 @@ terraform {
       version = "=3.0.0"
     }
   }
+  backend "azurerm" {
+    resource_group_name  = "test_rg"
+    storage_account_name = "tfstatestrg543654576"
+    container_name       = "2cbef372-42ce-48e2-aaa1-6606bcf16ad2-tfstate"
+    key                  = "base.tfstate"
+  }
 }
 
 provider "azurerm" {
@@ -34,9 +40,6 @@ provider "azurerm" {
   client_id       = "268b912e-9068-448a-b4e9-be124d5bff98"
   client_secret   = "n4R8Q~LIJy.lUpOnIRXDb7JeIYIaNEUscchMYbt7"
 }
-
-
-
 
 resource "azurerm_resource_group" "rg" {
   name     = "myTFResourceGroup1"
