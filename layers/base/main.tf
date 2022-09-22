@@ -20,10 +20,10 @@ variable "client_secret" {
 
 provider "azurerm" {
   features {}
-  #subscription_id = "2cbef372-42ce-48e2-aaa1-6606bcf16ad2"
-  #tenant_id       = "570057f4-73ef-41c8-bcbb-08db2fc15c2b"
-  #client_id       = "268b912e-9068-448a-b4e9-be124d5bff98"
-  #client_secret   = "n4R8Q~LIJy.lUpOnIRXDb7JeIYIaNEUscchMYbt7"
+  subscription_id = var.subscription_id
+  tenant_id       = var.tenant_id
+  client_id       = var.client_id
+  client_secret   = var.client_secret
 }
 
 terraform {
