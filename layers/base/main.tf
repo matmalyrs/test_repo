@@ -18,6 +18,11 @@ variable "client_secret" {
   sensitive = true
 }
 
+terraform {
+
+}
+
+
 provider "azurerm" {
   features {}
   subscription_id = var.subscription_id
@@ -27,8 +32,13 @@ provider "azurerm" {
 }
 
 terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=3.0.0"
+    }
+  }
   backend "azurerm" {
-    subscription_id      = "2cbef372-42ce-48e2-aaa1-6606bcf16ad2"
     resource_group_name  = "test_rg"
     storage_account_name = "tfstatestrg543654576"
     container_name       = "2cbef372-42ce-48e2-aaa1-6606bcf16ad2-tfstate"
