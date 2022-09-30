@@ -13,7 +13,6 @@ jobs:
           name: Terraform Plan
       - store_artifacts:
           path: /tmp/artifacts
-          destination: /
       - persist_to_workspace:
           root: workspace
           paths:
