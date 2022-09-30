@@ -39,6 +39,7 @@ terraform {
 resource "azurerm_resource_group" "rg" {
   name     = "myTFResourceGroup1"
   location = "eastus2"
+  status = "dead"
 }
 
 resource "azurerm_resource_group" "rg3" {
