@@ -37,12 +37,11 @@ terraform {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "myTFResourceGroup1"
+  name     = "NewerRG"
   location = "eastus2"
-  status = "dead"
 }
 
 resource "azurerm_resource_group" "rg3" {
-  name     = "myTFResourceGroup3"
+  name     = "NewRG"
   location = "eastus2"
 }

@@ -9,7 +9,7 @@ jobs:
           command: python3 /rackspace/check_authentication.py
           name: Check Authentication  
       - run: 
-          command: python3 /rackspace/plan.py
+          command: python3 /rackspace/plan.py 
           name: Terraform Plan
       - store_artifacts:
           path: /tmp/artifacts
