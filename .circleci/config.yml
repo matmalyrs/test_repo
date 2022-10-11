@@ -27,7 +27,7 @@ jobs:
       - image: docker.io/mataly/toolbox-rs-pipeline-python:latest
     steps:
       - run:
-          command: ls /root/project/workspace/
+          command: ls /root/project
       - run: 
           command: python3 /rackspace/check_authentication.py
           name: Check Authentication
