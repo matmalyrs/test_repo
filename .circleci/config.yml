@@ -3,7 +3,7 @@ jobs:
   plan:
     parameters:
       continue_apply:
-        type: bool
+        type: boolean
         default: False
     docker:
       - image: docker.io/mataly/toolbox-rs-pipeline-python:latest
