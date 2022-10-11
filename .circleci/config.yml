@@ -1,14 +1,4 @@
-version: 2
-commands:
-  provision-k8s:
-    parameters:
-      customer:
-        type: string
-        default: mycompany
-    steps:
-      - run:
-          name: Provision VPC and EKS cluster
-          command: echo << parameters.customer >>
+version: 2.1
 jobs:
   plan:
     parameters:
@@ -47,7 +37,6 @@ jobs:
           name: Terraform Apply
       
 workflows:
-  version: 2
   build_and_test:
     jobs:
       - plan
