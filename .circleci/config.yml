@@ -9,10 +9,8 @@ jobs:
           command: python3 /rackspace/check_authentication.py
           name: Check Authentication  
       - run: 
-          command: python3 /rackspace/plan.py > continue_apply
+          command: python3 /rackspace/plan.py > workspace/continue_apply
           name: Terraform Plan
-      - run: 
-          command: echo ${test}
       - store_artifacts:
           path: /tmp/artifacts
       - persist_to_workspace:
