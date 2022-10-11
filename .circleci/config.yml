@@ -16,7 +16,7 @@ jobs:
       #    command: python3 /rackspace/plan.py >> ${<< parameters.continue_apply >>}
       #    name: Terraform Plan
       - run: 
-          command: echo <<parameters.continue_apply>>
+          command: echo "<<parameters.continue_apply>>"
       - store_artifacts:
           path: /tmp/artifacts
       - persist_to_workspace:
