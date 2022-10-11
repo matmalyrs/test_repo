@@ -3,6 +3,8 @@ parameters:
     continue_apply:
       type: string
       default: "False"
+environment:
+      TMP_PARAM1: << parameters.continue_apply >>
 jobs:
   plan:
     docker:
@@ -16,7 +18,7 @@ jobs:
       #    command: python3 /rackspace/plan.py >> ${<< parameters.continue_apply >>}
       #    name: Terraform Plan
       - run: 
-          command: echo << pipeline.parameters.continue_apply >>
+          command: echo $TMP_PARAM1
       - store_artifacts:
           path: /tmp/artifacts
       - persist_to_workspace:
