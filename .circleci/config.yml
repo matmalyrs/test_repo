@@ -13,7 +13,7 @@ jobs:
           command: python3 /rackspace/check_authentication.py
           name: Check Authentication  
       - run: 
-          command: python3 /rackspace/plan.py >> ${<< parameters.continue_apply >>}
+          command: echo True >> ${<< parameters.continue_apply >>}
           name: Terraform Plan
       - run: 
           command: echo ${<< parameters.continue_apply >>}
