@@ -1,10 +1,6 @@
 version: 2.1
 jobs:
   plan:
-    parameters:
-      continue_apply:
-        type: boolean
-        default: False
     docker:
       - image: docker.io/mataly/toolbox-rs-pipeline-python:latest
     steps:
@@ -13,15 +9,16 @@ jobs:
           command: python3 /rackspace/check_authentication.py
           name: Check Authentication  
       - run: 
-          command: python3 /rackspace/plan.py >> << parameters.continue_apply >>
+          command: python3 /rackspace/plan.py > continue_apply
           name: Terraform Plan
       - run: 
-          command: echo << parameters.continue_apply >>
+          command: echo ${test}
       - store_artifacts:
           path: /tmp/artifacts
       - persist_to_workspace:
           root: workspace
           paths:
+            - continue_apply
             - .terraform.*.tar.gz
             - terraform.*.plan
             - layers
@@ -38,6 +35,8 @@ jobs:
       - run: 
           command: python3 /rackspace/apply.py
           name: Terraform Apply
+      - run:
+          command: echo continue_apply
       
 workflows:
   build_and_test:
