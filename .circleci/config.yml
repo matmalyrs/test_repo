@@ -1,4 +1,14 @@
 version: 2
+commands:
+  provision-k8s:
+    parameters:
+      customer:
+        type: string
+        default: mycompany
+    steps:
+      - run:
+          name: Provision VPC and EKS cluster
+          command: echo << parameters.customer >>
 jobs:
   plan:
     parameters:
