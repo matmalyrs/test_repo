@@ -26,13 +26,14 @@ jobs:
     docker:
       - image: docker.io/mataly/toolbox-rs-pipeline-python:latest
     steps:
+      - attach_workspace:
+          at: workspace
       - run:
           command: pwd
       - run: 
           command: python3 /rackspace/check_authentication.py
           name: Check Authentication
-      - attach_workspace:
-          at: workspace
+
       - run: 
           command: python3 /rackspace/apply.py
           name: Terraform Apply
