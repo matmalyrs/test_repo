@@ -4,7 +4,7 @@ parameters:
       type: string
       default: "False"
 environment:
-      TMP_PARAM1: << parameters.continue_apply >>
+      TMP_PARAM1: << pipeline.parameters.continue_apply >>
 jobs:
   plan:
     docker:
