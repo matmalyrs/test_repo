@@ -2,7 +2,7 @@ version: 2
 parameters:
     continue_apply:
       type: string
-      default: False
+      default: "False"
 jobs:
   plan:
     docker:
