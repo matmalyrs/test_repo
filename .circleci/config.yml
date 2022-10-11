@@ -1,12 +1,12 @@
 version: 2
-parameters:
+jobs:
+  plan:
+    parameters:
     continue_apply:
       type: string
       default: "False"
-environment:
-      TMP_PARAM1: << pipeline.parameters.continue_apply >>
-jobs:
-  plan:
+    environment:
+      TMP_PARAM1: << parameters.continue_apply >>
     docker:
       - image: docker.io/mataly/toolbox-rs-pipeline-python:latest
     steps:
