@@ -1,10 +1,10 @@
 version: 2
+parameters:
+    continue_apply:
+      type: string
+      default: False
 jobs:
   plan:
-    parameters:
-      continue_apply:
-        type: string
-        default: False
     docker:
       - image: docker.io/mataly/toolbox-rs-pipeline-python:latest
     steps:
@@ -50,3 +50,4 @@ workflows:
           filters:
             branches:
               only: master
+    
