@@ -29,7 +29,7 @@ jobs:
       - attach_workspace:
           at: workspace
       - run:
-          command: cat /workspace/continue_apply
+          command: cat ./workspace/continue_apply
       - run: 
           command: python3 /rackspace/check_authentication.py
           name: Check Authentication
